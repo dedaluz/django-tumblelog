@@ -5,3 +5,6 @@ bin
 build
 src
 pip-*
+_build
+Makefile
+make.bat
