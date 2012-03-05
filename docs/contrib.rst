@@ -242,9 +242,6 @@ Settings
 
 - :ref:`TUMBLELOG_SOUNDCLOUD_COLOR <tumblelog_soundcloud_color_setting>`
 
-
-.. _twitter_post_type:
-
 ----
 Text
 ----
@@ -261,6 +258,8 @@ Fields
 ------
 
 - ``body`` - the full text of the post
+
+.. _twitter_post_type:
 
 -----
 Tweet
@@ -291,6 +290,11 @@ Properties
 - ``twitter_user`` - the author's name
 - ``twitter_username`` - the author's Twitter username
 - ``twitter_user_url`` - the URL to the author's Twitter stream
+- ``tweet_id`` - Twitter's ID for this tweet
+- ``intents.reply`` - a URL at which you can reply to this tweet
+- ``intents.retweet`` - a URL at which you can retweet this tweet
+- ``intents.favorite`` - a URL at which you can favorite this tweet
+- ``intents.follow`` - a URL at which you can follow this Twitterer
 
 Settings
 --------

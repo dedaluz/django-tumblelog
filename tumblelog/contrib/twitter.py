@@ -127,3 +127,28 @@ class Tweet(BaseOembedRich):
         not return this property.
         """
         return re.search(r'([^\/]+)$', self.twitter_user_url).groups()[0]
+
+    @property
+    def tweet_id(self):
+        """
+        Returns this tweet's ID.
+
+        This method is necessarily fragile, as Twitter's oEmbed response does
+        not return this property.
+        """
+        return re.search(r'(\d+)$', self.tweet_url).groups()[0]
+
+    @property
+    def intents(self):
+        """
+        A selection of URLs conforming to Twitter's Web Intents API:
+
+        https://dev.twitter.com/docs/intents
+        """
+        base = 'https://twitter.com/intent/'
+        return {
+            'reply': '%stweet?in_reply_to=%s' % (base, self.tweet_id,),
+            'retweet': '%sretweet?tweet_id=%s' % (base, self.tweet_id,),
+            'favorite': '%sfavorite?tweet_id=%s' % (base, self.tweet_id,),
+            'follow': '%suser?screen_name=%s' % (base, self.twitter_username,),
+        }
