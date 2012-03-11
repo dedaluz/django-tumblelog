@@ -25,7 +25,7 @@ Let's look at an example oEmbed post type that will retrieve and store informati
     from django.db import models
 
     from tumblelog.fields import OEmbedURLField
-    from tumblelog.models import BaseOembedRich
+    from tumblelog.models.base import BaseOembedRich
 
 
     class Scribd(BaseOembedRich):
@@ -84,7 +84,7 @@ The only editable field on this model is ``scribd_url``. All other fields are un
 oEmbed Types
 ------------
 
-The oEmbed specification defines four broad types of resource, each with their own requirements in the provider response: photo, video, link, and image. To account for those fields, there are four subclasses of ``BaseOembedPostType`` to match each type. Custom oEmbed post types should never directly inherit from ``BaseOembedPostType``; instead it should inherit from one of the following base classes, depending on the nature of the response. Each of these are defined in the ``tumblelog.models`` module.
+The oEmbed specification defines four broad types of resource, each with their own requirements in the provider response: photo, video, link, and image. To account for those fields, there are four subclasses of ``BaseOembedPostType`` to match each type. Custom oEmbed post types should never directly inherit from ``BaseOembedPostType``; instead it should inherit from one of the following base classes, depending on the nature of the response. Each of these are defined in the ``tumblelog.models.base`` module.
 
 .. _oembed_photo_class:
 

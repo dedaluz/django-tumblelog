@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 
 from tumblelog import actions, filters
 from tumblelog.fields import OEmbedURLField
-from tumblelog.models import BaseOembedRich
+from tumblelog.models.base import BaseOembedRich
 
 
 class Gist(BaseOembedRich):

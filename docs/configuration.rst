@@ -9,16 +9,16 @@ tumblelog may be configured with the following settings
 TUMBLELOG_POST_TYPES
 --------------------
 
-Optional, but recommended; a list of paths to :ref:`post types <baseposttype_class>` you'd like to use.
+Optional, but recommended; a list of :ref:`post types <baseposttype_class>` you'd like to use. These should take the form of ``'app.Model'``, rather than being full import paths. 
 
 Default:
 ::
 
     [
-        'tumblelog.contrib.text.Article',
-        'tumblelog.contrib.text.Text',
-        'tumblelog.contrib.file.File',
-        'tumblelog.contrib.photo.Image',
+        'tumblelog.Article',
+        'tumblelog.Text',
+        'tumblelog.File',
+        'tumblelog.Image',
     ]
 
 Example:
@@ -26,9 +26,9 @@ Example:
 ::
 
     TUMBLELOG_POST_TYPES = [
-        'tumblelog.contrib.text.Text',
-        'tumblelog.contrib.photo.Image',
-        'recipes.models.Recipe',
+        'tumblelog.Text',
+        'tumblelog.Image',
+        'recipes.Recipe',
     ]
 
 

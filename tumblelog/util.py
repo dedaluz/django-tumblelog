@@ -1,18 +1,9 @@
-def path_break(path):
-    """
-    Passed a string formatted like 'app.models.Model', will return a tuple of
-    strings indicating the path and the local.
-    """
-    import_from = '.'.join(path.split('.')[:-1])
-    import_name = path.split('.')[-1:][0]
-    return import_from, import_name
+from django.db.models import get_model
 
 
-def import_from(path):
+def import_model(path):
     """
-    Passed a string formatted like 'app.models.Model', will return Model (a
-    local defined in app.models).
+    Passed a string "app.Model", will return Model registered inside app.
     """
-    path, name = path_break(path)
-    module = __import__(path, globals(), locals(), [name], -1)
-    return getattr(module, name)
+    split = path.split('.', 1)
+    return get_model(split[0], split[1])

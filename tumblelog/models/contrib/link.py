@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 from tumblelog import actions, filters
-from tumblelog.models import BasePostType
+from tumblelog.models.base import BasePostType
 from tumblelog.settings import TEXTFIELD_HELP_TEXT
 
 

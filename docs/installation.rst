@@ -31,9 +31,9 @@ Add a :ref:`TUMBLELOG_POST_TYPES <tumblelog_post_types_setting>` setting to your
 ::
 
     TUMBLELOG_POST_TYPES = [
-        'tumblelog.contrib.text.Text',
-        'tumblelog.contrib.photo.Image',
-        'recipes.models.Recipe',
+        'tumblelog.Text',
+        'tumblelog.Image',
+        'recipes.Recipe',
     ]
 
 Finally, include the tumblelog URLconf to your ``urls`` module. The regex may be modified as you wish.

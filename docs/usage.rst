@@ -10,14 +10,14 @@ As tumblelogs are comprised of a stream of posts, each with a unique strucutre a
 BasePostType
 ------------
 
-Post types are subclasses of ``tumblelog.models.BasePostType``, which is itself a subclass of Django's ``db.models.Model``. Let's look at an example post type for recipes, which might be defined in the ``models`` module of an app called ``recipes``:
+Post types are subclasses of ``tumblelog.models.base.BasePostType``, which is itself a subclass of Django's ``db.models.Model``. Let's look at an example post type for recipes, which might be defined in the ``models`` module of an app called ``recipes``:
 
 ::
 
     from django.db import models
     from django.utils.translation import ugettext as _
 
-    from tumblelog.models import BasePostType
+    from tumblelog.models.base import BasePostType
 
     class Recipe(BasePostType):
         """

@@ -3,7 +3,7 @@ from django.utils.translation import ugettext as _
 
 from tumblelog import actions, filters
 from tumblelog.fields import OEmbedURLField
-from tumblelog.models import BaseOembedVideo
+from tumblelog.models.base import BaseOembedVideo
 
 
 class BaseOembedVideoWithThumbnail(BaseOembedVideo):

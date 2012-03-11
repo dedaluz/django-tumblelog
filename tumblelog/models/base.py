@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 import oembed
-import sys
 from urllib2 import HTTPError
 
 from django.contrib.admin import helpers
@@ -8,15 +7,11 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.db import models
-from django.utils.importlib import import_module
 from django.utils.translation import ugettext as _
 
-from tumblelog.contrib import CONTRIB_POST_TYPES
 from tumblelog.managers import PostManager
 from tumblelog.mixins import PostMetaMixin
-from tumblelog.settings import POST_TYPES, OEMBED_DEFAULT_CACHE_AGE, \
-    TEXTFIELD_HELP_TEXT
-from tumblelog.util import path_break
+from tumblelog.settings import OEMBED_DEFAULT_CACHE_AGE, TEXTFIELD_HELP_TEXT
 
 
 class TumblelogMeta(object):
@@ -105,6 +100,7 @@ class Post(PostMetaMixin, models.Model):
     objects = PostManager()
 
     class Meta:
+        app_label = 'tumblelog'
         ordering = ['-date_published']
 
     def __unicode__(self):
@@ -337,16 +333,3 @@ class BaseOembedRich(BaseOembedPostType):
         'height',
         ('html', 'embed',)
     )
-
-
-"""
-Parse through the list of all CONTRIB_POST_TYPES and other post types defined
-in TUMBLELOG_POST_TYPES, adding any not already defined in this module to
-locals(). This allows Django to discover them and manage their database tables
-as appropriate.
-"""
-for post_type in CONTRIB_POST_TYPES + POST_TYPES:
-    path, model_name = path_break(post_type)
-    module = import_module(path)
-    model = getattr(module, model_name)
-    setattr(sys.modules[__name__], model_name, model)

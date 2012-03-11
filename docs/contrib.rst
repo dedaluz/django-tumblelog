@@ -11,7 +11,7 @@ Article
 A post type representing a long-form text post
 
 Location:
-  ``tumblelog.contrib.text.Article``
+  ``tumblelog.Article``
 
 Extends:
   :ref:`BasePostType <baseposttype_class>`
@@ -31,7 +31,7 @@ Flickr
 An `oEmbed post type </oembed>` for the `Flickr <http://flickr.com>`_ image hosting service.
 
 Location:
-  ``tumblelog.contrib.photo.Flickr``
+  ``tumblelog.Flickr``
 
 Extends:
   :ref:`BaseOembedPhoto <oembed_photo_class>`
@@ -63,7 +63,7 @@ File
 A post type for a downloadable file.
 
 Location:
-  ``tumblelog.contrib.code.File``
+  ``tumblelog.File``
 
 Extends:
   :ref:`BasePostType <baseposttype_class>`
@@ -87,7 +87,7 @@ Gist
 An `oEmbed post type </oembed>` for GitHub's `Gist <https://gist.github.com/>`_ code snippet service.
 
 Location:
-  ``tumblelog.contrib.code.Gist``
+  ``tumblelog.Gist``
 
 Extends:
   :ref:`BaseOembedRich <oembed_rich_class>`
@@ -114,7 +114,7 @@ Image
 A post type for an image file.
 
 Location:
-  ``tumblelog.contrib.photo.Image``
+  ``tumblelog.Image``
 
 Extends:
   :ref:`BasePostType <baseposttype_class>`
@@ -137,7 +137,7 @@ Instagram
 An `oEmbed post type </oembed>` for the `Instagram <http://instagr.am>`_ image sharing service.
 
 Location:
-  ``tumblelog.contrib.photo.Instagram``
+  ``tumblelog.Instagram``
 
 Extends:
   :ref:`BaseOembedPhoto <oembed_photo_class>`
@@ -163,7 +163,7 @@ Link
 A post type for a link to an external site.
 
 Location:
-  ``tumblelog.contrib.link.Link``
+  ``tumblelog.Link``
 
 Extends:
   :ref:`BasePostType <baseposttype_class>`
@@ -182,7 +182,7 @@ Rdio
 An `oEmbed post type </oembed>` for the `Rdio <http://rdio.com>`_ streaming music service. Can be used to embed an album, track, or playlist.
 
 Location:
-  ``tumblelog.contrib.audio.Rdio``
+  ``tumblelog.Rdio``
 
 Extends:
   :ref:`BaseOembedRich <oembed_rich_class>`
@@ -212,7 +212,7 @@ SoundCloud
 An `oEmbed post type </oembed>` for the `SoundCloud <http://rdio.com>`_ audio sharing service. Can be used to embed a track, set, group, or user.
 
 Location:
-  ``tumblelog.contrib.audio.SoundCloud``
+  ``tumblelog.SoundCloud``
 
 Extends:
   :ref:`BaseOembedRich <oembed_rich_class>`
@@ -249,7 +249,7 @@ Text
 A post type representing a short text post
 
 Location:
-  ``tumblelog.contrib.text.Text``
+  ``tumblelog.Text``
 
 Extends:
   :ref:`BasePostType <baseposttype_class>`
@@ -268,7 +268,7 @@ Tweet
 An `oEmbed post type </oembed>` for a tweet on `Twitter <https://twitter.com/>`_.
 
 Location:
-  ``tumblelog.contrib.twitter.Tweet``
+  ``tumblelog.Tweet``
 
 Extends:
   :ref:`BaseOembedRich <oembed_rich_class>`
@@ -309,7 +309,7 @@ Vimeo
 An `oEmbed post type </oembed>` for the `Vimeo <http://vimeo.com/>`_ video hosting service.
 
 Location:
-  ``tumblelog.contrib.video.Vimeo``
+  ``tumblelog.Vimeo``
 
 Extends:
   :ref:`BaseOembedVideo <oembed_video_class>`
@@ -339,7 +339,7 @@ YouTube
 An `oEmbed post type </oembed>` for the `YouTube <http://youtube.com/>`_ video hosting service.
 
 Location:
-  ``tumblelog.contrib.video.YouTube``
+  ``tumblelog.YouTube``
 
 Extends:
   :ref:`BaseOembedVideo <oembed_video_class>`

@@ -4,7 +4,7 @@ from django.utils.translation import ugettext as _
 from tumblelog import actions, filters
 from tumblelog.choices import FLICKR_SIZE_CHOICES
 from tumblelog.fields import OEmbedURLField
-from tumblelog.models import BasePostType, BaseOembedPhoto
+from tumblelog.models.base import BasePostType, BaseOembedPhoto
 from tumblelog.settings import FLICKR_WIDTH, TEXTFIELD_HELP_TEXT
 
 
