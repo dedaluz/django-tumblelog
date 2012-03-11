@@ -1,3 +1,5 @@
+import sys
+
 from tumblelog.models.base import Post
 from tumblelog.models.contrib.audio import Rdio, SoundCloud
 from tumblelog.models.contrib.code import Gist
@@ -30,3 +32,6 @@ __all__ = [
 for post_type in POST_TYPES:
     if not post_type.startswith('tumblelog.'):
         model = import_model(post_type)
+        model_name = model.__name__
+        setattr(sys.modules[__name__], model_name, model)
+        __all__.append(model_name)
