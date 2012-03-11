@@ -121,8 +121,8 @@ class PostTypeMetaclass(models.base.ModelBase):
     """
     def __new__(cls, name, bases, attrs):
         """
-        Translates the PageManagerMeta class to an instance of PageLayoutMeta,
-        accessible as self._pagemanager_meta in any PageLayout subclasses.
+        Creates a TumblelogMeta instance, accessible as obj._tumblelog_meta in
+        any BasePostType subclasses.
         """
         opts = TumblelogMeta(attrs.pop('TumblelogMeta', None))
         attrs['_tumblelog_meta'] = opts
@@ -177,14 +177,6 @@ class BasePostType(PostMetaMixin, models.Model):
         post.date_published = self.date_published
         post.slug = self.slug
         post.save()
-
-    @classmethod
-    def is_tumblelog_post_type(cls):
-        """
-        Used in templates to differentiate between BasePostType model classes
-        from others.
-        """
-        return True
 
 
 class BaseOembedPostType(BasePostType):
