@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import oembed
+import sys
 from urllib2 import HTTPError
 
 from django.contrib.admin import helpers
@@ -7,6 +8,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.db import models
+from django.utils.importlib import import_module
 from django.utils.translation import ugettext as _
 
 from tumblelog.contrib import CONTRIB_POST_TYPES
@@ -352,7 +354,7 @@ locals(). This allows Django to discover them and manage their database tables
 as appropriate.
 """
 for post_type in CONTRIB_POST_TYPES + POST_TYPES:
-    path, model = path_break(post_type)
-    if not model in locals():
-        module = __import__(path, globals(), locals(), [model], -1)
-        locals()[model] = getattr(module, model)  # Ew.
+    path, model_name = path_break(post_type)
+    module = import_module(path)
+    model = getattr(module, model_name)
+    setattr(sys.modules[__name__], model_name, model)

@@ -196,8 +196,8 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('tumblelog', ['Instagram'])
 
-        # Adding model 'Text'
-        db.create_table('tumblelog_text', (
+        # Adding model 'TextSnippet'
+        db.create_table('tumblelog_textsnippet', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('status', self.gf('django.db.models.fields.CharField')(default='d', max_length=1)),
             ('date_added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
@@ -207,7 +207,7 @@ class Migration(SchemaMigration):
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=64, db_index=True)),
             ('body', self.gf('django.db.models.fields.TextField')()),
         ))
-        db.send_create_signal('tumblelog', ['Text'])
+        db.send_create_signal('tumblelog', ['TextSnippet'])
 
         # Adding model 'Article'
         db.create_table('tumblelog_article', (
@@ -339,8 +339,8 @@ class Migration(SchemaMigration):
         # Deleting model 'Instagram'
         db.delete_table('tumblelog_instagram')
 
-        # Deleting model 'Text'
-        db.delete_table('tumblelog_text')
+        # Deleting model 'TextSnippet'
+        db.delete_table('tumblelog_textsnippet')
 
         # Deleting model 'Article'
         db.delete_table('tumblelog_article')
@@ -545,8 +545,8 @@ class Migration(SchemaMigration):
             'version': ('django.db.models.fields.CharField', [], {'max_length': '3', 'null': 'True', 'blank': 'True'}),
             'width': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'})
         },
-        'tumblelog.text': {
-            'Meta': {'object_name': 'Text'},
+        'tumblelog.textsnippet': {
+            'Meta': {'object_name': 'TextSnippet'},
             'body': ('django.db.models.fields.TextField', [], {}),
             'date_added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),

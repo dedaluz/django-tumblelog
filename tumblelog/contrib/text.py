@@ -6,7 +6,7 @@ from tumblelog.models import BasePostType
 from tumblelog.settings import TEXTFIELD_HELP_TEXT
 
 
-class Text(BasePostType):
+class TextSnippet(BasePostType):
     """
     Post type for a small blurb of text
     """

@@ -7,7 +7,7 @@ CONTRIB_POST_TYPES = [
     'tumblelog.contrib.photo.Image',
     'tumblelog.contrib.photo.Flickr',
     'tumblelog.contrib.photo.Instagram',
-    'tumblelog.contrib.text.Text',
+    'tumblelog.contrib.text.TextSnippet',
     'tumblelog.contrib.text.Article',
     'tumblelog.contrib.twitter.Tweet',
     'tumblelog.contrib.video.YouTube',
