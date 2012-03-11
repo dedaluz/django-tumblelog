@@ -6,7 +6,6 @@ from tumblelog.models import Post
 
 
 class PostListView(ListView):
-    allow_empty = False
     context_object_name = 'posts'
     paginate_by = 20
     queryset = Post.objects.public()
