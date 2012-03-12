@@ -10,18 +10,25 @@ class PostListView(ListView):
     paginate_by = 20
     queryset = Post.objects.public()
 
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context.update({
+            'list_view': True,
+            'detail_view': False,
+        })
+        return context
+
 
 class PostDetailView(DetailView):
     context_object_name = 'post'
     queryset = Post.objects.public()
 
-    def get_post_template(self, model):
-        return 'tumblelog/%s_detail.html' % slugify(model)
-
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         obj = context['object']
         context.update({
-            'template': self.get_post_template(obj.fields.__class__.__name__)
+            'post_type': slugify(obj.fields.__class__.__name__),
+            'list_view': False,
+            'detail_view': True,
         })
         return context
