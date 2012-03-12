@@ -7,6 +7,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
 from tumblelog.managers import PostManager
@@ -173,6 +174,11 @@ class BasePostType(PostMetaMixin, models.Model):
         post.date_published = self.date_published
         post.slug = self.slug
         post.save()
+
+    @property
+    def post_template(self):
+        return 'tumblelog/%s_detail.html' % slugify(self.__class__.__name__)
+
 
 
 class BaseOembedPostType(BasePostType):
