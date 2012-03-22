@@ -5,6 +5,7 @@ from urllib2 import HTTPError
 from django.contrib.admin import helpers
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -95,7 +96,8 @@ class Post(PostMetaMixin, models.Model):
     fields = generic.GenericForeignKey('post_type', 'object_id')
     slug = models.SlugField(_('Slug'),
         max_length=64,
-        help_text=_('Used to construct the post\'s URL')
+        help_text=_('Used to construct the post\'s URL'),
+        unique=True,
     )
 
     objects = PostManager()
@@ -140,7 +142,8 @@ class BasePostType(PostMetaMixin, models.Model):
     title = models.CharField(_('Title'), max_length=256)
     slug = models.SlugField(_('Slug'),
         max_length=64,
-        help_text=_('Used to construct the post\'s URL')
+        help_text=_('Used to construct the post\'s URL'),
+        unique=True
     )
     post = generic.GenericRelation(Post, content_type_field='post_type', \
         object_id_field='object_id')
@@ -156,6 +159,34 @@ class BasePostType(PostMetaMixin, models.Model):
 
     def get_absolute_url(self):
         return self.post.all()[0].get_absolute_url()
+
+    def clean_fields(self, exclude):
+        """
+        Ensures that multiple posts do not share a slug.
+        """
+        super(BasePostType, self).clean_fields(exclude)
+
+        errors = {}
+        matching_post = None
+        own_post = None
+        SLUG_EXISTS = [_('A post with this slug already exists.')]
+
+        try:
+            matching_post = Post.objects.get(slug=self.slug)
+        except Post.DoesNotExist:
+            pass
+        else:
+            try:
+                own_post = self.post.all()[0]
+            except IndexError:
+                if matching_post:
+                    errors['slug'] = SLUG_EXISTS
+            else:
+                if matching_post != own_post:
+                    errors['slug'] = SLUG_EXISTS
+
+        if errors:
+            raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
         """
