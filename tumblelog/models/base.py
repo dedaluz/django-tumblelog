@@ -208,8 +208,14 @@ class BasePostType(PostMetaMixin, models.Model):
 
     @property
     def post_template(self):
-        return 'tumblelog/%s_detail.html' % slugify(self.__class__.__name__)
+        return 'tumblelog/post/%s.html' % slugify(self.__class__.__name__)
 
+    @property
+    def rss_template(self):
+        return [
+            'tumblelog/rss/%s.html' % slugify(self.__class__.__name__),
+            self.post_template,
+        ]
 
 
 class BaseOembedPostType(BasePostType):
