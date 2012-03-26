@@ -1,13 +1,11 @@
-from tumblelog import __version__
-
 extensions = ['sphinx.ext.autodoc']
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 project = 'django-tumblelog'
 copyright = '2012, Chuck Harmston'
-version = __version__
-release = __version__
+version = '0.1'
+release = '0.1'
 exclude_patterns = ['_build']
 pygments_style = 'sphinx'
 html_theme = 'nature'
