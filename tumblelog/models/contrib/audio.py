@@ -50,7 +50,6 @@ class Rdio(BaseOembedRich):
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
         )
-        change_form_template = 'admin/rdio_change_form.html'
         fieldsets = (
             (None, {
                 'fields': ('title', 'rdio_url', 'caption',)
@@ -157,7 +156,6 @@ class SoundCloud(BaseOembedRich):
             actions.mark_as_published,
             actions.mark_as_draft,
         ]
-        change_form_template = 'admin/soundcloud_change_form.html'
         date_hierarchy = 'date_published'
         fieldsets = (
             (None, {

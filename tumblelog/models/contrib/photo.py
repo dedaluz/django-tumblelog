@@ -97,7 +97,6 @@ class Flickr(BaseOembedPhoto):
             actions.mark_as_published,
             actions.mark_as_draft,
         ]
-        change_form_template = 'admin/flickr_change_form.html'
         date_hierarchy = 'date_published'
         fieldsets = (
             (None, {
@@ -180,7 +179,6 @@ class Instagram(BaseOembedPhoto):
             actions.mark_as_published,
             actions.mark_as_draft,
         ]
-        change_form_template = 'admin/instagram_change_form.html'
         date_hierarchy = 'date_published'
         fieldsets = (
             (None, {

@@ -55,7 +55,6 @@ class YouTube(BaseOembedVideoWithThumbnail):
             actions.mark_as_published,
             actions.mark_as_draft,
         ]
-        change_form_template = 'admin/youtube_change_form.html'
         date_hierarchy = 'date_published'
         fieldsets = (
             (None, {
@@ -149,7 +148,6 @@ class Vimeo(BaseOembedVideoWithThumbnail):
             actions.mark_as_draft,
         ]
         date_hierarchy = 'date_published'
-        change_form_template = 'admin/vimeo_change_form.html'
         fieldsets = (
             (None, {
                 'fields': ('title', 'vimeo_url', 'caption',)

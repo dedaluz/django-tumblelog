@@ -48,7 +48,6 @@ class Tweet(BaseOembedRich):
             actions.mark_as_published,
             actions.mark_as_draft,
         ]
-        change_form_template = 'admin/tweet_change_form.html'
         date_hierarchy = 'date_published'
         fieldsets = (
             (None, {
