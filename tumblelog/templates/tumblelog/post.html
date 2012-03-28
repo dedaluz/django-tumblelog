@@ -1,0 +1,7 @@
+<article class="{{ post.post_type_name }}">
+     <header>
+         <h2><a href="{{ post.get_absolute_url }}">{{ post.fields.title }}</a></h2>
+         <time pubdate="pubdate" datetime="{{ post.date_published|date:"m-d-Y" }}">{{ post.date_published|date:"F j, Y" }}</time>
+     </header>
+     {% include post.fields.post_template %}
+</article>

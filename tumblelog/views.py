@@ -1,4 +1,3 @@
-from django.template.defaultfilters import slugify
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
@@ -7,7 +6,7 @@ from tumblelog.models import Post
 
 class PostListView(ListView):
     context_object_name = 'posts'
-    paginate_by = 20
+    paginate_by = 2
     queryset = Post.objects.public()
 
     def get_context_data(self, **kwargs):
@@ -25,9 +24,7 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
-        obj = context['object']
         context.update({
-            'post_type': slugify(obj.fields.__class__.__name__),
             'list_view': False,
             'detail_view': True,
         })

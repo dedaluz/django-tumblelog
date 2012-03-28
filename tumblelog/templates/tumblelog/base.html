@@ -1,0 +1,17 @@
+{% load url from future %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}My Cat Pictures{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{% url 'tumblelog:feed' %}" />
+    </head>
+    <body>
+        <header>
+            <h1><a href="{% url 'tumblelog:list' %}">My Cat Pictures</a></h1>
+        </header>
+        {% block main %}{% endblock main %}
+        {% block footer %}{% endblock footer %}
+    </body>
+</html>

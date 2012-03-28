@@ -113,6 +113,12 @@ class Post(PostMetaMixin, models.Model):
     def get_absolute_url(self):
         return ('tumblelog:detail', [], {'slug': self.fields.slug})
 
+    @property
+    def post_type_name(self):
+        if self.fields:
+            return slugify(self.fields.__class__.__name__)
+        return None
+
 
 class PostTypeMetaclass(models.base.ModelBase):
     """
