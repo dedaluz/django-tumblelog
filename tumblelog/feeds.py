@@ -34,3 +34,14 @@ class PostFeed(Feed):
 
     def item_pubdate(self, item):
         return item.date_published
+
+    def item_author_name(self, item):
+        if item.author.first_name or item.author.last_name:
+            return '%s %s' % (item.author.first_name, item.author.last_name,)
+        else:
+            return item.author.username
+
+    def item_author_email(self, item):
+        if item.author.email:
+            return item.author.email
+        return ''
