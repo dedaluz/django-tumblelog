@@ -2,6 +2,8 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 
 
+POSTS_PER_PAGE = getattr(settings, 'TUMBLELOG_POSTS_PER_PAGE', 10)
+
 POST_TYPES = getattr(settings, 'TUMBLELOG_POST_TYPES', [
     'tumblelog.contrib.text.Article',
     'tumblelog.contrib.text.Text',

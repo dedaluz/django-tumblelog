@@ -32,6 +32,23 @@ Example:
     ]
 
 
+TUMBLELOG_POSTS_PER_PAGE
+------------------------
+
+Optional; controls the number of posts displayed per page in the post listing views.
+
+Default:
+
+::
+
+    10
+
+Example:
+
+::
+
+    TUMBLELOG_POSTS_PER_PAGE = 15
+
 TUMBLELOG_TEXTFIELD_HELP_TEXT
 -----------------------------
 
