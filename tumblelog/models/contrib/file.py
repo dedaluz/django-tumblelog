@@ -48,11 +48,12 @@ class File(BasePostType):
             }),
             (_('Meta'), {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',)
+                'fields': ('status', 'slug', 'date_published', 'author',)
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )
@@ -60,6 +61,7 @@ class File(BasePostType):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)

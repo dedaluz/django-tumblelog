@@ -38,7 +38,9 @@ class Rdio(BaseOembedRich):
         date_hierarchy = 'date_published'
         list_display = (
             'title',
+            'author',
             'date_published',
+            'status',
         )
         search_fields = [
             'title',
@@ -49,6 +51,7 @@ class Rdio(BaseOembedRich):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         fieldsets = (
             (None, {
@@ -56,7 +59,7 @@ class Rdio(BaseOembedRich):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',)
+                'fields': ('status', 'slug', 'date_published', 'author',)
             }),
         )
         prepopulated_fields = {
@@ -173,11 +176,12 @@ class SoundCloud(BaseOembedRich):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',)
+                'fields': ('status', 'slug', 'date_published', 'author',)
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )
@@ -185,6 +189,7 @@ class SoundCloud(BaseOembedRich):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)

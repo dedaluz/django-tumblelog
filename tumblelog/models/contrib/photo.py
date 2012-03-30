@@ -36,11 +36,12 @@ class Image(BasePostType):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',)
+                'fields': ('status', 'slug', 'date_published', 'author',)
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )
@@ -48,6 +49,7 @@ class Image(BasePostType):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)
@@ -104,17 +106,20 @@ class Flickr(BaseOembedPhoto):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',)
+                'fields': ('status', 'slug', 'date_published', 'author',)
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
+            'status',
         )
         list_filter = (
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)
@@ -191,6 +196,7 @@ class Instagram(BaseOembedPhoto):
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )

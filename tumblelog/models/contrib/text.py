@@ -29,11 +29,12 @@ class TextSnippet(BasePostType):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',),
+                'fields': ('status', 'slug', 'date_published', 'author',),
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )
@@ -41,6 +42,7 @@ class TextSnippet(BasePostType):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)
@@ -76,11 +78,12 @@ class Article(BasePostType):
             }),
             ('Meta', {
                 'classes': ('collapse',),
-                'fields': ('status', 'slug', 'date_published',),
+                'fields': ('status', 'slug', 'date_published', 'author',),
             }),
         )
         list_display = (
             'title',
+            'author',
             'date_published',
             'status',
         )
@@ -88,6 +91,7 @@ class Article(BasePostType):
             filters.PubliclyVisibleListFilter,
             filters.PublicationDateListFilter,
             filters.StatusListFilter,
+            'author',
         )
         prepopulated_fields = {
             'slug': ('title',)
