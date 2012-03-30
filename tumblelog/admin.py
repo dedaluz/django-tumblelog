@@ -7,6 +7,16 @@ from tumblelog.util import import_model
 
 
 class PostTypeAdmin(admin.ModelAdmin):
+
+    def save_model(self, request, obj, form, change):
+        """
+        On new saves, sets the post author to the current user if it wasn't
+        already defined.
+        """
+        if not obj.author:
+            obj.author = request.user
+        obj.save()
+
     def get_fieldsets(self, request, obj=None):
         """
         Hook for specifying fieldsets for the add form, modified to only
@@ -45,8 +55,31 @@ class PostTypeAdmin(admin.ModelAdmin):
         Returns boolean indicating whether the user has necessary permissions to
         view the passed field.
         """
+        if field_name == 'author':
+            if not request.user.has_perm('tumblelog.change_author'):
+                return False
         return True
 
+    def queryset(self, request):
+        """
+        If the user has permission to edit others' posts,, display all posts in
+        the change_view. Otherwise, only display the users posts.
+        """
+        posts = super(PostTypeAdmin, self).queryset(request)
+        if request.user.has_perm('tumblelog.edit_others_posts'):
+            return posts
+        else:
+            return posts.filter(author=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        """
+        If the user is the author of the post or has the proper permissions,
+        they can change this object.
+        """
+        if not obj or obj.author == request.user or \
+            request.user.has_perm('tumblelog.edit_others_posts'):
+            return True
+        return False
 
 # Dynamically generate admin class from values passed to TumblelogMeta
 for post_type in POST_TYPES:

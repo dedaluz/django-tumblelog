@@ -3,6 +3,7 @@ import oembed
 from urllib2 import HTTPError
 
 from django.contrib.admin import helpers
+from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
@@ -94,6 +95,7 @@ class Post(PostMetaMixin, models.Model):
     post_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     fields = generic.GenericForeignKey('post_type', 'object_id')
+    author = models.ForeignKey(User, blank=True, null=True)
     slug = models.SlugField(_('Slug'),
         max_length=64,
         help_text=_('Used to construct the post\'s URL'),
@@ -105,6 +107,10 @@ class Post(PostMetaMixin, models.Model):
     class Meta:
         app_label = 'tumblelog'
         ordering = ['-date_published']
+        permissions = (
+            ('change_author', 'Can change the author of a post'),
+            ('edit_others_posts', 'Can edit others\' posts'),
+        )
 
     def __unicode__(self):
         return '%s (%s)' % (self.fields.title, self.fields.__class__.__name__,)
@@ -146,6 +152,7 @@ class BasePostType(PostMetaMixin, models.Model):
     post type.
     """
     title = models.CharField(_('Title'), max_length=256)
+    author = models.ForeignKey(User, blank=True, null=True)
     slug = models.SlugField(_('Slug'),
         max_length=64,
         help_text=_('Used to construct the post\'s URL'),
@@ -210,6 +217,7 @@ class BasePostType(PostMetaMixin, models.Model):
         post.date_modified = self.date_modified
         post.date_published = self.date_published
         post.slug = self.slug
+        post.author = self.author
         post.save()
 
     @property
