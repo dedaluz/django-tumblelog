@@ -4,6 +4,8 @@ Contrib Post Types
 
 tumblelog's ``contrib`` module provides a number of ready-made post types.
 
+.. _article_post_type:
+
 -------
 Article
 -------

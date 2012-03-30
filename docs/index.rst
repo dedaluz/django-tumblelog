@@ -17,6 +17,7 @@ User Guide
 
    installation
    usage
+   templating
    rss
    configuration
    contrib
