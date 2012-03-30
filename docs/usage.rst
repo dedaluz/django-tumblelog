@@ -62,6 +62,7 @@ These properties are available to each ``BasePostType`` subclass:
 - ``is_queued`` - boolean, indicates if a post's ``publication_date`` is in the future (i.e. a scheduled post)
 - ``is_public`` - boolean, indicates whether a post is publicly visible (i.e. both ``is_past`` and ``is_published`` are True)
 - ``post`` - Post object, a GenericRelation reference to the object's associated :ref:`Post object <post_class>`.
+- ``post_template`` - the :ref:`template specific to the post type <post_type_templates>`, suitable for use as the parameter value of the `{% include %} <https://docs.djangoproject.com/en/dev/ref/templates/builtins/#include>`_ tag.
 
 .. _post_class:
 
@@ -99,6 +100,7 @@ Properties
 - ``is_queued`` - boolean, indicates if a post's ``publication_date`` is in the future (i.e. a scheduled post)
 - ``is_public`` - boolean, indicates whether a post is publicly visible (i.e. both ``is_past`` and ``is_published`` are True)
 - ``fields`` - instance of a :ref:`BasePostType <baseposttype_class>` subclass, a GenericForeignKey
+- ``post_type_name`` - a slugified version of the post type class' name, suitable for use as the value of an HTML class attribute
 
 Manager
 --------------
