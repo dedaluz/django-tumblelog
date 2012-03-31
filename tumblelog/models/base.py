@@ -14,7 +14,8 @@ from django.utils.translation import ugettext as _
 
 from tumblelog.managers import PostManager
 from tumblelog.mixins import PostMetaMixin
-from tumblelog.settings import OEMBED_DEFAULT_CACHE_AGE, TEXTFIELD_HELP_TEXT
+from tumblelog.settings import OEMBED_DEFAULT_CACHE_AGE, TEXTFIELD_HELP_TEXT, \
+    USE_TAGGIT
 
 
 class TumblelogMeta(object):
@@ -230,6 +231,13 @@ class BasePostType(PostMetaMixin, models.Model):
             'tumblelog/rss/%s.html' % slugify(self.__class__.__name__),
             self.post_template,
         ]
+
+
+# Add the django-taggit manager, if taggit is installed
+if USE_TAGGIT:
+    from taggit.managers import TaggableManager
+    taggit_manager = TaggableManager()
+    taggit_manager.contribute_to_class(BasePostType, 'tags')
 
 
 class BaseOembedPostType(BasePostType):

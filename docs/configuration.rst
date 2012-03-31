@@ -49,6 +49,23 @@ Example:
 
     TUMBLELOG_POSTS_PER_PAGE = 15
 
+TUMBLELOG_USE_TAGGIT
+--------------------
+
+Optional; a boolean indicating whether you would like `django-taggit <http://django-taggit.readthedocs.org/>`_ to be used.
+
+Default: the value of
+
+::
+
+    'taggit' in settings.INSTALLED_APPS
+
+Example:
+
+::
+
+    TUMBLELOG_USE_TAGGIT = True
+
 TUMBLELOG_TEXTFIELD_HELP_TEXT
 -----------------------------
 
