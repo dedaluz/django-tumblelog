@@ -9,8 +9,31 @@ Perhaps the best implementation of this model is `Tumblr <http://tumblr.com>`_, 
 
 ``django-tumblelog`` is an attempt to provide more flexibility to this format by giving you full control over each post type.
 
+Features
+--------
+
+* Simple definition of custom post types
+* Large stable of contrib post types to get started quickly.
+
+  - Post short text blurbs, long-form articles, links, files, and photos.
+
+* oEmbed support, for embedding of 3rd-party media in posts.
+
+  - Post directly from Twitter, Flickr, Instagram, Rdio, SoundCloud, Vimeo, YouTube, and GitHub.
+
+* Optional integration with `django-taggit <http://django-taggit.readthedocs.org/>`_
+* Takes full advantage of Django's templating system
+* Agnostic of commenting system and markup format.
+* Internationalization-ready
+* Post scheduling
+* Draft posts
+* Multi-author support with object-level permissions
+* RSS feed
+
 User Guide
 ----------
+
+Installing and using tumblelog:
 
 .. toctree::
    :maxdepth: 2
