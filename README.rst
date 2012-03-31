@@ -8,7 +8,7 @@ Features
 * Simple definition of custom post types
 * Large stable of contrib post types to get started quickly.
 
-  - Post short text blurbs, long-form articles, links, files, and photos.
+  - Post short text blurbs, long-form articles, links, files, photos, and code snippets.
 
 * oEmbed support, for embedding of 3rd-party media in posts.
 

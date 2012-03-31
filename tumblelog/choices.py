@@ -3,6 +3,17 @@ STATUS_CHOICES = (
     ('p', 'Published'),
 )
 
+CODE_LANGUAGES = (
+    ('generic', 'Generic'),
+    ('html', 'HTML'),
+    ('css', 'CSS'),
+    ('javascript', 'JavaScript'),
+    ('php', 'PHP'),
+    ('python', 'Python'),
+    ('ruby', 'Ruby'),
+    ('shell', 'Shell'),
+)
+
 SOUNDCLOUD_HEIGHT_CHOICES = (
     ('81', 'Compact (81px)',),
     ('305', 'Normal (305px)',),

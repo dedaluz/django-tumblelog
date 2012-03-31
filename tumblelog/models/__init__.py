@@ -2,7 +2,7 @@ import sys
 
 from tumblelog.models.base import Post
 from tumblelog.models.contrib.audio import Rdio, SoundCloud
-from tumblelog.models.contrib.code import Gist
+from tumblelog.models.contrib.code import Code, CodeSnippet, Gist
 from tumblelog.models.contrib.file import File
 from tumblelog.models.contrib.link import Link
 from tumblelog.models.contrib.photo import Image, Flickr, Instagram
@@ -27,6 +27,8 @@ __all__ = [
     'Tweet',
     'YouTube',
     'Vimeo',
+    'Code',
+    'CodeSnippet',
 ]
 
 for post_type in POST_TYPES:

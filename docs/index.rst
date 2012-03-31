@@ -15,7 +15,7 @@ Features
 * Simple definition of custom post types
 * Large stable of contrib post types to get started quickly.
 
-  - Post short text blurbs, long-form articles, links, files, and photos.
+  - Post short text blurbs, long-form articles, links, files, photos, and code snippets.
 
 * oEmbed support, for embedding of 3rd-party media in posts.
 
@@ -46,3 +46,8 @@ Installing and using tumblelog:
    contrib
    oembed
    changelog
+
+Third-Party Software
+--------------------
+
+`Craig Campbell <http://craig.is/>`_'s `Rainbow.js <http://rainbowco.de/>`_ is packaged with tumblelog, and is used for syntax highlighting for the :ref:`code post type <code_post_type>`. It was released under the Apache 2.0 license, a `copy of which <https://github.com/chuckharmston/django-tumblelog/tree/master/tumblelog/static/tumblelog/rainbow/LICENSE>`_ is included in this repository.

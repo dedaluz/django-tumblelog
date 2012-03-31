@@ -24,6 +24,40 @@ Fields
 - ``body`` - the full text of the article
 - ``excerpt`` - a short excerpt of the ``body``, intended to be used in post listing views
 
+.. _code_post_type:
+
+----
+Code
+----
+
+A post type representing one or more code snippets.
+
+Location:
+  ``tumblelog.Code``
+
+Extends:
+  :ref:`BasePostType <baseposttype_class>`
+
+Fields
+------
+
+- ``caption`` - the full text of the article
+- ``excerpt`` - a short excerpt of the ``body``, intended to be used in post listing views
+
+Inlines
+-------
+
+- ``CodeSnippet``, which has the following fields and properties:
+
+  - ``name`` - the snippet's name
+  - ``language`` - the snippet's language (passed on to `Rainbow.js <http://rainbowco.de/>`_)
+  - ``code`` - the actual code in this snippet
+  - ``post`` - a pointer to the ``Code`` instance to which this snippet belongs
+
+Properties
+----------
+- ``snippets`` - a list of ``CodeSnippet`` objects associated with the post
+
 .. _flickr_post_type:
 
 ------
