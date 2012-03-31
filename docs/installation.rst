@@ -36,7 +36,9 @@ Add a :ref:`TUMBLELOG_POST_TYPES <tumblelog_post_types_setting>` setting to your
         'recipes.Recipe',
     ]
 
-Finally, include the tumblelog URLconf to your ``urls`` module. The regex may be modified as you wish.
+You may add additional post typesTo further customize tumblelog, you may want to :doc:`add additional settings </configuration>`.
+
+Finally, include the tumblelog URLconf to your ``urls`` module. The regex may be modified as you wish, though the ``tumblelog`` namespace must be maintained.
 
 ::
 
@@ -45,7 +47,7 @@ Finally, include the tumblelog URLconf to your ``urls`` module. The regex may be
 Requirements
 ------------
 
-Django 1.4 is required (for `list filters <https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter>`_), and ``django.contrib.contenttypes`` must be installed.
+Django 1.4 is required (for `list filters <https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter>`_), and three contrib modules must be installed: ``django.contrib.admin``, ``django.contrib.auth``, and ``django.contrib.contenttypes``.
 
 Dependencies
 ------------
