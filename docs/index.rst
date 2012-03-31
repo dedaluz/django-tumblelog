@@ -45,3 +45,4 @@ Installing and using tumblelog:
    configuration
    contrib
    oembed
+   changelog
