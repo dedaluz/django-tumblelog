@@ -1,6 +1,6 @@
-=====
-Usage
-=====
+====================
+Posts and Post Types
+====================
 
 As tumblelogs are comprised of a stream of posts, each with a unique strucutre and schema, it is impractical for a single model to represent all types of posts. tumblelog allows you to develop :ref:`separate models for each post type <baseposttype_class>` while maintaining the ability to :ref:`query all posts at a time <post_class>`, regardless of the post type.
 
