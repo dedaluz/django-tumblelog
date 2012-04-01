@@ -8,7 +8,9 @@ from tumblelog.settings import POSTS_PER_PAGE
 class PostListView(ListView):
     context_object_name = 'posts'
     paginate_by = POSTS_PER_PAGE
-    queryset = Post.objects.public()
+
+    def get_queryset(self):
+        return Post.objects.public()
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
@@ -21,7 +23,9 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     context_object_name = 'post'
-    queryset = Post.objects.public()
+
+    def get_queryset(self):
+        return Post.objects.public()
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
